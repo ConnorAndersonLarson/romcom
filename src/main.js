@@ -17,3 +17,11 @@ var currentCover;
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
+//Randomized Title
+var title = document.querySelector('.cover-title')
+title.innerText = titles[getRandomIndex(titles)]
+//Randomized Tagline
+var taglineOne = document.querySelector('.tagline-1')
+taglineOne.innerText = descriptors[getRandomIndex(descriptors)];
+var taglineTwo = document.querySelector('.tagline-2')
+taglineTwo.innerText = descriptors[getRandomIndex(descriptors)];
