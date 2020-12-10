@@ -17,11 +17,30 @@ var currentCover;
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
-//Randomized Title
-var title = document.querySelector('.cover-title')
-title.innerText = titles[getRandomIndex(titles)]
-//Randomized Tagline
-var taglineOne = document.querySelector('.tagline-1')
-taglineOne.innerText = descriptors[getRandomIndex(descriptors)];
-var taglineTwo = document.querySelector('.tagline-2')
-taglineTwo.innerText = descriptors[getRandomIndex(descriptors)];
+new Cover (randomCover())
+
+function randomCover(){
+  var coverData = {
+    taglineOne: descriptors[getRandomIndex(descriptors)],
+    taglineTwo: descriptors[getRandomIndex(descriptors)]
+  }
+  if (/*INSERT EVENT LISTENER HERE*/ 0 === 2) {
+    return new Cover(cover, title, taglineOne, taglineTwo);
+  } else {
+  (document.querySelector('.cover-title')).innerText = titles[getRandomIndex(titles)];
+  (document.querySelector('.cover-image')).src = covers[getRandomIndex(covers)];
+    if (coverData.taglineOne === coverData.taglineTwo) {
+      coverData.taglineOne = descriptors[getRandomIndex(descriptors)]
+   } else {
+      (document.querySelector('.tagline-1')).innerText = coverData.taglineOne;
+      (document.querySelector('.tagline-2')).innerText = coverData.taglineTwo;
+    }
+  }
+}
+
+var randomCoverButton = document.querySelector('.random-cover-button')
+randomCoverButton.addEventListener('click', function changeCover() {
+ currentCover.src = covers[getRandomIndex(covers)];
+})
+
+randomCover()
