@@ -1,12 +1,15 @@
 // Create variables targetting the relevant DOM elements here 👇
-
+var selectedCover = document.querySelector('.cover-image') //.src
+var selectedTitle = document.querySelector('.cover-title') //.innerText
+var taglineOne = document.querySelector('.tagline-1') //.innerText
+var taglineTwo = document.querySelector('.tagline-2') //.innerText
+var randomCoverButton = document.querySelector('.random-cover-button')
 
 // We've provided a few variables below
 var savedCovers = [
   new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
 ];
-var currentCover;
-
+var currentCover = randomCover();
 // Add your event listeners here 👇
 
 
@@ -20,27 +23,20 @@ function getRandomIndex(array) {
 new Cover (randomCover())
 
 function randomCover(){
-  var coverData = {
-    taglineOne: descriptors[getRandomIndex(descriptors)],
-    taglineTwo: descriptors[getRandomIndex(descriptors)]
-  }
-  if (/*INSERT EVENT LISTENER HERE*/ 0 === 2) {
-    return new Cover(cover, title, taglineOne, taglineTwo);
-  } else {
-  (document.querySelector('.cover-title')).innerText = titles[getRandomIndex(titles)];
-  (document.querySelector('.cover-image')).src = covers[getRandomIndex(covers)];
-    if (coverData.taglineOne === coverData.taglineTwo) {
-      coverData.taglineOne = descriptors[getRandomIndex(descriptors)]
+    var randomDescTwo = descriptors[getRandomIndex(descriptors)]
+    var randomDescOne = descriptors[getRandomIndex(descriptors)]
+    var randomCover = covers[getRandomIndex(covers)]
+    var randomTitle = titles[getRandomIndex(titles)]
+  selectedTitle.innerText = randomTitle;
+  selectedCover.src = randomCover;
+    if (randomDescOne === randomDescTwo) {
+      randomDescOne = descriptors[getRandomIndex(descriptors)]
    } else {
-      (document.querySelector('.tagline-1')).innerText = coverData.taglineOne;
-      (document.querySelector('.tagline-2')).innerText = coverData.taglineTwo;
-    }
-  }
+      taglineOne.innerText = randomDescOne;
+      taglineTwo.innerText = randomDescTwo;
+   }
 }
 
-var randomCoverButton = document.querySelector('.random-cover-button')
-randomCoverButton.addEventListener('click', function changeCover() {
- currentCover.src = covers[getRandomIndex(covers)];
-})
+randomCoverButton.addEventListener('click', randomCover);
 
-randomCover()
+//randomCover()
