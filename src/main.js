@@ -100,6 +100,10 @@ function makeBookCover() {
   //console.log(selectedTitle.innerText)
   customCover = [title, cover, desc1, desc2]
   currentCover(customCover)
+  covers.push(cover)
+  titles.push(title)
+  descriptors.push(desc1)
+  descriptors.push(desc2)
   goHome()
   event.preventDefault()
   //should save the data into respective arrays- cover, title, descriprtor
