@@ -65,30 +65,30 @@ function randomCover(){
 randomCover()
 
 function changeToSavedCovers() {
-  homeButton.style.display = 'block';
-  saveCoverButton.style.display = 'none';
-  randomCoverButton.style.display = 'none';
-  mainCover.style.display = 'none';
-  savedCoversSection.style.display = 'block'
-  formView.style.display = 'none';
+  homeButton.classList.remove('hidden');
+  saveCoverButton.classList.add('hidden');
+  randomCoverButton.classList.add('hidden');
+  mainCover.classList.add('hidden');
+  savedCoversSection.classList.remove('hidden')
+  formView.classList.add('hidden');
 };
 
 function changeToMakeNewCover() {
-  homeButton.style.display = 'block';
-  saveCoverButton.style.display = 'none';
-  randomCoverButton.style.display = 'none';
-  mainCover.style.display = 'none';
-  savedCoversSection.style.display = 'none'
-  formView.style.display = 'block';
+  homeButton.classList.remove('hidden');
+  saveCoverButton.classList.add('hidden');
+  randomCoverButton.classList.add('hidden');
+  mainCover.classList.add('hidden');
+  savedCoversSection.classList.add('hidden');
+  formView.classList.remove('hidden')
 };
 
 function goHome() {
-  saveCoverButton.style.display = 'block';
-  homeButton.style.display = 'none';
-  randomCoverButton.style.display = 'block';
-  mainCover.style.display = 'block';
-  savedCoversSection.style.display = 'none'
-  formView.style.display = 'none';
+  saveCoverButton.classList.remove('hidden')
+  homeButton.classList.add('hidden');
+  randomCoverButton.classList.remove('hidden')
+  mainCover.classList.remove('hidden')
+  savedCoversSection.classList.add('hidden');
+  formView.classList.add('hidden');
 };
 
 function makeBookCover() {
