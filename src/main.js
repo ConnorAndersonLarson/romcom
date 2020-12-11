@@ -65,31 +65,38 @@ function randomCover(){
 randomCover()
 
 function changeToSavedCovers() {
-  homeButton.classList.remove('hidden');
-  saveCoverButton.classList.add('hidden');
-  randomCoverButton.classList.add('hidden');
-  mainCover.classList.add('hidden');
+  changePage(2)
   savedCoversSection.classList.remove('hidden')
-  formView.classList.add('hidden');
 };
 
 function changeToMakeNewCover() {
-  homeButton.classList.remove('hidden');
-  saveCoverButton.classList.add('hidden');
-  randomCoverButton.classList.add('hidden');
-  mainCover.classList.add('hidden');
-  savedCoversSection.classList.add('hidden');
+  changePage(3)
   formView.classList.remove('hidden')
 };
 
 function goHome() {
+  changePage(1)
   saveCoverButton.classList.remove('hidden')
   homeButton.classList.add('hidden');
   randomCoverButton.classList.remove('hidden')
   mainCover.classList.remove('hidden')
-  savedCoversSection.classList.add('hidden');
-  formView.classList.add('hidden');
 };
+
+function changePage(num){
+  var buttons = [homeButton, saveCoverButton,randomCoverButton, mainCover, savedCoversSection, formView]
+  if (num === 1 || num === 2) {
+    buttons[5].classList.add('hidden')
+  }
+  if (num === 2 || num === 3) {
+    buttons[0].classList.remove('hidden')
+    buttons[1].classList.add('hidden')
+    buttons[2].classList.add('hidden')
+    buttons[3].classList.add('hidden')
+  }
+  if (num === 3 || num === 1) {
+    buttons[4].classList.add('hidden')
+  }
+}
 
 function makeBookCover() {
 
