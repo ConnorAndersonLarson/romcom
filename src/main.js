@@ -9,9 +9,15 @@ var formView = document.querySelector('.form-view');
 var mainCover = document.querySelector('.main-cover');
 var randomCoverButton = document.querySelector('.random-cover-button');
 var saveCoverButton = document.querySelector('.save-cover-button');
-var viewSavedCoversButton = document.querySelector('.view-saved-button')
-var savedCoversSection = document.querySelector('.saved-view')
-var homeButton = document.querySelector('.home-button')
+var viewSavedCoversButton = document.querySelector('.view-saved-button');
+var savedCoversSection = document.querySelector('.saved-view');
+var homeButton = document.querySelector('.home-button');
+var makeMyBook = document.querySelector('.create-new-book-button');
+var coverInput = document.querySelector('.user-cover');
+var titleInput = document.querySelector('.user-title');
+var firstDescriptorInput = document.querySelector('.user-desc1');
+var secondDescriptorInput = document.querySelector('.user-desc2');
+
 
 
 // We've provided a few variables below
@@ -25,6 +31,7 @@ randomCoverButton.addEventListener('click', randomCover);
 makeNewCover.addEventListener('click', changeToMakeNewCover);
 viewSavedCoversButton.addEventListener('click', changeToSavedCovers);
 homeButton.addEventListener('click', goHome)
+makeMyBook.addEventListener('click', makeBookCover)
 
 
 // Create your event handlers and other functions here 👇
@@ -54,16 +61,16 @@ function randomCover(){
 }
 randomCover()
 
-function changeToSavedCovers(){
+function changeToSavedCovers() {
   homeButton.style.display = 'block';
   saveCoverButton.style.display = 'none';
   randomCoverButton.style.display = 'none';
   mainCover.style.display = 'none';
   savedCoversSection.style.display = 'block'
   formView.style.display = 'none';
-}
+};
 
-function changeToMakeNewCover(){
+function changeToMakeNewCover() {
   homeButton.style.display = 'block';
   saveCoverButton.style.display = 'none';
   randomCoverButton.style.display = 'none';
@@ -73,10 +80,22 @@ function changeToMakeNewCover(){
 };
 
 function goHome() {
-  homeButton.style.display = 'none';
   saveCoverButton.style.display = 'block';
+  homeButton.style.display = 'none';
   randomCoverButton.style.display = 'block';
   mainCover.style.display = 'block';
   savedCoversSection.style.display = 'none'
   formView.style.display = 'none';
-}
+};
+
+function makeBookCover() {
+  var customCover = new Cover()
+  selectedTitle.innerText = titleInput.value
+  console.log(selectedTitle.innerText)
+  //should save the data into respective arrays- cover, title, descriprtor
+  //Use the values from the inputs to create a new instance of the Cover class
+  //Change back to the main home view (hiding the form view again)
+  //Display the newly created cover image, title, and descriptors in the main cover
+
+
+};
