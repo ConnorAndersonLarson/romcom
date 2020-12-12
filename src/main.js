@@ -53,6 +53,14 @@ function randomCover(){
 }
 randomCover()
 
+function goHome() {
+  changePage(1)
+  saveCoverButton.classList.remove('hidden')
+  homeButton.classList.add('hidden');
+  randomCoverButton.classList.remove('hidden')
+  mainCover.classList.remove('hidden')
+};
+
 function changeToSavedCovers() {
   changePage(2)
   savedCoversSection.classList.remove('hidden')
@@ -61,14 +69,6 @@ function changeToSavedCovers() {
 function changeToMakeNewCover() {
   changePage(3)
   formView.classList.remove('hidden')
-};
-
-function goHome() {
-  changePage(1)
-  saveCoverButton.classList.remove('hidden')
-  homeButton.classList.add('hidden');
-  randomCoverButton.classList.remove('hidden')
-  mainCover.classList.remove('hidden')
 };
 
 function changePage(num){
