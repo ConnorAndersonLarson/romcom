@@ -33,8 +33,8 @@ function getRandomIndex(array) {
 }
 
 function makeCurrentCover(array) {
-  selectedTitle.innerText = array[0];
-  selectedCover.src = array[1];
+  selectedCover.src = array[0];
+  selectedTitle.innerText = array[1];
   taglineTwo.innerText = array[3];
     if (array[2] === array[2]) {
       randomDescOne = descriptors[getRandomIndex(descriptors)]
@@ -49,7 +49,7 @@ function randomCover(){
     var randomDescOne = descriptors[getRandomIndex(descriptors)]
     var randomCover = covers[getRandomIndex(covers)]
     var randomTitle = titles[getRandomIndex(titles)]
-   makeCurrentCover([randomTitle, randomCover, randomDescOne, randomDescTwo])
+   makeCurrentCover([randomCover, randomTitle, randomDescOne, randomDescTwo])
 }
 randomCover()
 
@@ -92,12 +92,12 @@ function makeBookCover() {
   var title = titleInput.value
   var desc1 = firstDescriptorInput.value
   var desc2 = secondDescriptorInput.value
-  customCover = [title, cover, desc1, desc2]
-  currentCover(customCover)
-  covers.push(cover)
-  titles.push(title)
-  descriptors.push(desc1)
-  descriptors.push(desc2)
+  customCover = [cover, title, desc1, desc2]
+  makeCurrentCover(customCover)
+   covers.push(cover)
+   titles.push(title)
+   descriptors.push(desc1)
+   descriptors.push(desc2)
   goHome()
   event.preventDefault()
 };
