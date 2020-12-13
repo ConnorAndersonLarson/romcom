@@ -16,17 +16,20 @@ var coverInput = document.querySelector('.user-cover');
 var titleInput = document.querySelector('.user-title');
 var firstDescriptorInput = document.querySelector('.user-desc1');
 var secondDescriptorInput = document.querySelector('.user-desc2');
+var savedCoverViewer = document.querySelector('.saved-covers-section');
 
 var savedCovers = [
   new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
 ];
-
 var currentCover
+
 randomCoverButton.addEventListener('click', randomCover);
 makeNewCover.addEventListener('click', changeToMakeNewCover);
 viewSavedCoversButton.addEventListener('click', changeToSavedCovers);
 homeButton.addEventListener('click', goHome)
 makeMyBook.addEventListener('click', makeBookCover)
+saveCoverButton.addEventListener('click', saveCoverData)
+window.addEventListener('load', randomCover)
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -50,8 +53,9 @@ function randomCover(){
     var randomCover = covers[getRandomIndex(covers)]
     var randomTitle = titles[getRandomIndex(titles)]
    makeCurrentCover([randomCover, randomTitle, randomDescOne, randomDescTwo])
+   currentCover = new Cover(randomCover, randomTitle, randomDescOne, randomDescTwo)
 }
-randomCover()
+//randomCover()
 
 function goHome() {
   changePage(1)
@@ -64,6 +68,7 @@ function goHome() {
 function changeToSavedCovers() {
   changePage(2)
   savedCoversSection.classList.remove('hidden')
+  //showSavedCovers(savedCovers)
 };
 
 function changeToMakeNewCover() {
@@ -92,8 +97,9 @@ function makeBookCover() {
   var title = titleInput.value
   var desc1 = firstDescriptorInput.value
   var desc2 = secondDescriptorInput.value
-  customCover = [cover, title, desc1, desc2]
-  makeCurrentCover(customCover)
+  currentCover = [cover, title, desc1, desc2]
+  makeCurrentCover(currentCover)
+  currentCover = new Cover(cover, title, desc1, desc2)
    covers.push(cover)
    titles.push(title)
    descriptors.push(desc1)
@@ -101,3 +107,34 @@ function makeBookCover() {
   goHome()
   event.preventDefault()
 };
+
+function saveCoverData() {
+  savedCovers.includes(currentCover) || savedCovers.push(currentCover)
+}
+
+function showSavedCovers(savedCovers) {
+    savedCoverViewer.innerHTML += `
+      <section id="${savedCovers.id}">
+      <section class="mini-cover">
+        <img class="cover-image" src="${savedCovers.cover}">
+        <h2 class="cover-title">${savedCovers.title}</h2>
+        <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers.tagline1}</span> and <span class="tagline-2">${savedCovers.tagline2}</span></h3>
+        <img class="price-tag" src="./assets/price.png">
+        <img class="overlay" src="./assets/overlay.png">
+      </section>
+    </section>`
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /////
