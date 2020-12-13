@@ -29,6 +29,7 @@ viewSavedCoversButton.addEventListener('click', changeToSavedCovers);
 homeButton.addEventListener('click', goHome)
 makeMyBook.addEventListener('click', makeBookCover)
 saveCoverButton.addEventListener('click', saveCoverData)
+savedCoverViewer.addEventListener('click', deleteCover)
 window.addEventListener('load', randomCover)
 
 function getRandomIndex(array) {
@@ -68,7 +69,7 @@ function goHome() {
 function changeToSavedCovers() {
   changePage(2)
   savedCoversSection.classList.remove('hidden')
-  //showSavedCovers(savedCovers)
+  showSavedCovers(savedCovers)
 };
 
 function changeToMakeNewCover() {
@@ -113,18 +114,20 @@ function saveCoverData() {
 }
 
 function showSavedCovers(savedCovers) {
-    savedCoverViewer.innerHTML += `
-      <section id="${savedCovers.id}">
-      <section class="mini-cover">
-        <img class="cover-image" src="${savedCovers.cover}">
-        <h2 class="cover-title">${savedCovers.title}</h2>
-        <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers.tagline1}</span> and <span class="tagline-2">${savedCovers.tagline2}</span></h3>
-        <img class="price-tag" src="./assets/price.png">
-        <img class="overlay" src="./assets/overlay.png">
-      </section>
-    </section>`
+      savedCoverViewer.innerHTML = ''
+      for (i = 0; i < savedCovers.length; i++) {
+      savedCoverViewer.innerHTML += `
+        <section id="${savedCovers[i].id}">
+        <section class="mini-cover">
+          <img class="cover-image" src="${savedCovers[i].cover}">
+          <h2 class="cover-title">${savedCovers[i].title}</h2>
+          <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
+          <img class="price-tag" src="./assets/price.png">
+          <img class="overlay" src="./assets/overlay.png">
+        </section>
+      </section>`
+    }
 }
-
 
 
 
