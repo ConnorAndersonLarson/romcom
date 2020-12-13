@@ -29,6 +29,7 @@ viewSavedCoversButton.addEventListener('click', changeToSavedCovers);
 homeButton.addEventListener('click', goHome)
 makeMyBook.addEventListener('click', makeBookCover)
 saveCoverButton.addEventListener('click', saveCoverData)
+savedCoverViewer.addEventListener('dblclick', deleteCover)
 window.addEventListener('load', randomCover)
 
 function getRandomIndex(array) {
@@ -55,7 +56,6 @@ function randomCover(){
    makeCurrentCover([randomCover, randomTitle, randomDescOne, randomDescTwo])
    currentCover = new Cover(randomCover, randomTitle, randomDescOne, randomDescTwo)
 }
-//randomCover()
 
 function goHome() {
   changePage(1)
@@ -116,8 +116,7 @@ function showSavedCovers(savedCovers) {
       savedCoverViewer.innerHTML = ''
       for (i = 0; i < savedCovers.length; i++) {
       savedCoverViewer.innerHTML += `
-        <section id="${savedCovers[i].id}">
-        <section class="mini-cover">
+        <section class="mini-cover" id="${savedCovers[i].id}">
           <img class="cover-image" src="${savedCovers[i].cover}">
           <h2 class="cover-title">${savedCovers[i].title}</h2>
           <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
@@ -126,4 +125,14 @@ function showSavedCovers(savedCovers) {
         </section>
       </section>`
     }
+}
+
+function deleteCover() {
+  var coverToBeRemoved = event.target.parentElement.id
+  for (var i = 0; i < savedCovers.length; i++) {
+    if (coverToBeRemoved == savedCovers[i].id) {
+      savedCovers.splice(i, 1)
+      changeToSavedCovers()
+    }
+  }
 }
