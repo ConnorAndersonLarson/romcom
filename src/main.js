@@ -16,6 +16,7 @@ var coverInput = document.querySelector('.user-cover');
 var titleInput = document.querySelector('.user-title');
 var firstDescriptorInput = document.querySelector('.user-desc1');
 var secondDescriptorInput = document.querySelector('.user-desc2');
+var savedCoverViewer = document.querySelector('.saved-covers-section');
 
 var savedCovers = [
   new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
@@ -66,6 +67,7 @@ function goHome() {
 function changeToSavedCovers() {
   changePage(2)
   savedCoversSection.classList.remove('hidden')
+  //showSavedCovers(savedCovers)
 };
 
 function changeToMakeNewCover() {
@@ -105,29 +107,35 @@ function makeBookCover() {
 };
 
 function saveCoverData() {
-  console.log('sdfad')
   for (var i = 0; i < savedCovers.length; i++) {
     var coverCompare = savedCovers[i].cover === currentCover.cover
     var titleCompare = savedCovers[i].title === currentCover.title
     var descriptorOneCompare = savedCovers[i].taglineOne === currentCover.taglineOne
-    var descriptorTwoCompare = savedCovers[i].taglineTwo === currentCover.tagLineTwo
-
-    console.log(coverCompare, titleCompare, descriptorOneCompare, descriptorTwoCompare)
-    console.log(savedCovers[i])
-    console.log()
-    var save;
+    var descriptorTwoCompare = savedCovers[i].taglineTwo === currentCover.taglineTwo
     if (coverCompare != false && titleCompare != false && descriptorOneCompare != false && descriptorTwoCompare != false) {
-      console.log("big fat turd")
-    } else if (i === (savedCovers.length - 1)) /*&& (savedCovers[i].cover === currentCover.cover) == false && (savedCovers[i].title === currentCover.title) == false && (savedCovers[i].taglineOne === currentCover.taglineOne) == false && (savedCovers[i].taglineTwo === currentCover.tagLineTwo) == false)*/{
+      return;
+    } else if (i === (savedCovers.length - 1)) {
       savedCovers.push(currentCover)
-      console.log(savedCovers)
+      showSavedCovers(currentCover)
     }
   }
-console.log(savedCovers)
-
+  showSavedCovers(savedCovers)
 }
 
-
+function showSavedCovers(savedCovers) {
+  //for (i = 0; i < savedCovers.length; i++) {
+  console.log(savedCovers)
+    savedCoverViewer.innerHTML += `
+      <section class="mini-cover">
+        <img class="cover-image" src="${savedCovers.cover}">
+        <h2 class="cover-title">${savedCovers.title}</h2>
+        <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers.tagline1}</span> and <span class="tagline-2">${savedCovers.tagline2}</span></h3>
+        <img class="price-tag" src="./assets/price.png">
+        <img class="overlay" src="./assets/overlay.png">
+      </section>
+    </section>`
+  //}
+}
 
 
 
