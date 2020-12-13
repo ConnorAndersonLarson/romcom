@@ -110,8 +110,8 @@ function saveCoverData() {
     var titleCompare = savedCovers[i].title === currentCover.title
     var descriptorOneCompare = savedCovers[i].taglineOne === currentCover.taglineOne
     var descriptorTwoCompare = savedCovers[i].taglineTwo === currentCover.tagLineTwo
-    var save;
     if (coverCompare != false && titleCompare != false && descriptorOneCompare != false && descriptorTwoCompare != false) {
+      return;
     } else if (i === (savedCovers.length - 1)){
       savedCovers.push(currentCover)
     }
