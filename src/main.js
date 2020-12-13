@@ -109,18 +109,7 @@ function makeBookCover() {
 };
 
 function saveCoverData() {
-  for (var i = 0; i < savedCovers.length; i++) {
-    var coverCompare = savedCovers[i].cover === currentCover.cover
-    var titleCompare = savedCovers[i].title === currentCover.title
-    var descriptorOneCompare = savedCovers[i].taglineOne === currentCover.taglineOne
-    var descriptorTwoCompare = savedCovers[i].taglineTwo === currentCover.taglineTwo
-    if (coverCompare != false && titleCompare != false && descriptorOneCompare != false && descriptorTwoCompare != false) {
-      return;
-    } else if (i === (savedCovers.length - 1)) {
-      savedCovers.push(currentCover)
-      showSavedCovers(savedCovers[(savedCovers.length-1)])
-    }
-  }
+  savedCovers.includes(currentCover) || savedCovers.push(currentCover)
 }
 
 function showSavedCovers(savedCovers) {
