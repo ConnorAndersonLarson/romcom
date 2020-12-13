@@ -27,6 +27,7 @@ makeNewCover.addEventListener('click', changeToMakeNewCover);
 viewSavedCoversButton.addEventListener('click', changeToSavedCovers);
 homeButton.addEventListener('click', goHome)
 makeMyBook.addEventListener('click', makeBookCover)
+saveCoverButton.addEventListener('click', saveCoverData)
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -50,6 +51,7 @@ function randomCover(){
     var randomCover = covers[getRandomIndex(covers)]
     var randomTitle = titles[getRandomIndex(titles)]
    makeCurrentCover([randomCover, randomTitle, randomDescOne, randomDescTwo])
+   currentCover = new Cover(randomCover, randomTitle, randomDescOne, randomDescTwo)
 }
 randomCover()
 
@@ -101,3 +103,42 @@ function makeBookCover() {
   goHome()
   event.preventDefault()
 };
+
+function saveCoverData() {
+  console.log('sdfad')
+  for (var i = 0; i < savedCovers.length; i++) {
+    var coverCompare = savedCovers[i].cover === currentCover.cover
+    var titleCompare = savedCovers[i].title === currentCover.title
+    var descriptorOneCompare = savedCovers[i].taglineOne === currentCover.taglineOne
+    var descriptorTwoCompare = savedCovers[i].taglineTwo === currentCover.tagLineTwo
+
+    console.log(coverCompare, titleCompare, descriptorOneCompare, descriptorTwoCompare)
+    console.log(savedCovers[i])
+    console.log()
+    var save;
+    if (coverCompare != false && titleCompare != false && descriptorOneCompare != false && descriptorTwoCompare != false) {
+      console.log("big fat turd")
+    } else if (i === (savedCovers.length - 1)) /*&& (savedCovers[i].cover === currentCover.cover) == false && (savedCovers[i].title === currentCover.title) == false && (savedCovers[i].taglineOne === currentCover.taglineOne) == false && (savedCovers[i].taglineTwo === currentCover.tagLineTwo) == false)*/{
+      savedCovers.push(currentCover)
+      console.log(savedCovers)
+    }
+  }
+console.log(savedCovers)
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /////
