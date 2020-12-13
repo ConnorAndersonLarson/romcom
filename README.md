@@ -52,14 +52,13 @@ When the page loads, we should see a cover with a randomly selected image, title
 
 
 #### Creating a Cover ####
-In the Make New Cover section user can create unique covers. There are four categories that you can change- cover, title, and two descriptors.
+In the Make New Cover section users can create unique covers. There are four categories that you can change: cover, title, and two descriptors.
 ##### How it Works #####
-* We created a function that reads users input and creates them into a cover.
-* First we created an event that prevents the page from reloading automatically.
-* Four variables are assigned to to the value of user coverInput.
-* The variables are used in a function that creates a new cover object.
-* The new cover object overrides the current cover data.
-* Finally when the user clicks the "Make My Book" button they are brought back to the home screen where the new cover appears.
+* We created a function that reads user input assigns them to variables.
+* Those variables are then stored in an array which get passed to the makeCurrentCover function
+* The variables are  also used to create a new cover object which overrides the current cover data.
+* When the user clicks the "Make My Book" button they are brought back to the home screen where the new cover appears.
+* An event handler was also added to prevent the page from reloading by default.
 
 ---
 ### Iteration 4 ###
