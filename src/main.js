@@ -29,6 +29,7 @@ viewSavedCoversButton.addEventListener('click', changeToSavedCovers);
 homeButton.addEventListener('click', goHome)
 makeMyBook.addEventListener('click', makeBookCover)
 saveCoverButton.addEventListener('click', saveCoverData)
+savedCoverViewer.addEventListener('click', deleteCover)
 window.addEventListener('load', randomCover)
 
 function getRandomIndex(array) {
@@ -126,4 +127,9 @@ function showSavedCovers(savedCovers) {
         </section>
       </section>`
     }
+}
+
+function deleteCover(event) {
+  var tar = event.target.parentElement
+  console.log(tar)
 }
