@@ -21,14 +21,15 @@ var savedCoverViewer = document.querySelector('.saved-covers-section');
 var savedCovers = [
   new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
 ];
-
 var currentCover
+
 randomCoverButton.addEventListener('click', randomCover);
 makeNewCover.addEventListener('click', changeToMakeNewCover);
 viewSavedCoversButton.addEventListener('click', changeToSavedCovers);
 homeButton.addEventListener('click', goHome)
 makeMyBook.addEventListener('click', makeBookCover)
 saveCoverButton.addEventListener('click', saveCoverData)
+window.addEventListener('load', randomCover)
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -54,7 +55,7 @@ function randomCover(){
    makeCurrentCover([randomCover, randomTitle, randomDescOne, randomDescTwo])
    currentCover = new Cover(randomCover, randomTitle, randomDescOne, randomDescTwo)
 }
-randomCover()
+//randomCover()
 
 function goHome() {
   changePage(1)
