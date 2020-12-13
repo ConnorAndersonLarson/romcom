@@ -54,19 +54,20 @@ When the page loads, we should see a cover with a randomly selected image, title
 #### Creating a Cover ####
 In the Make New Cover section users can create unique covers. There are four categories that you can change: cover, title, and two descriptors.
 ##### How it Works #####
-* We created a function that reads user input assigns them to variables.
-* Those variables are then stored in an array which get passed to the makeCurrentCover function
-* The variables are  also used to create a new cover object which overrides the current cover data.
-* When the user clicks the "Make My Book" button they are brought back to the home screen where the new cover appears.
-* An event handler was also added to prevent the page from reloading by default.
+	* We created a function that reads user input assigns them to variables.
+	* Those variables are then stored in an array which get passed to the makeCurrentCover function.
+	* The variables are  also used to create a new cover object which overrides the current cover data.
+	* When the user clicks the "Make My Book" button they are brought back to the home screen where the new cover appears.
+	* An event handler was also added to prevent the page from reloading by default.
 
 ---
 ### Iteration 4 ###
 ---
 #### Saving & Viewing Covers ####
-
+If a user would like to save a random or custom cover they can utilize the "Save Cover" button.  
 ##### How it Works #####
-
+	* The "Save Cover" button utilizes an event listener and handler.
+	* When the button is clicked the saveCoverData function is invoked. This will evaluate if the data is already stored.  If the cover has at least one unique characteristic it will be saved.
 
 ---
 ### Iteration 5 ###
@@ -81,9 +82,9 @@ After saving covers you are able to view them in the View Saved Covers Section. 
   * The target element gets assigned to what gets double clicked, in this case we asked for the parent element id.
   * Next we created a for loop.
     1. Loop will run for the duration of the savedCovers array.
-    2. If the target id is loosely equal to the savedCover id our code will initiate
+    2. If the target id is loosely equal to the savedCover id our code will initiate.
     3. A splice method is utilized to remove only one element.
-    4. Page will reload with updated collection of photos
+    4. Page will reload with updated collection of photos.
 
 ---
 ### Future Additions ###
