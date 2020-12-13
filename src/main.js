@@ -129,6 +129,12 @@ function showSavedCovers(savedCovers) {
 }
 
 function deleteCover(event) {
-  var tar = event.target.parentElement
-  console.log(tar)
+  var tar = event.target.parentElement.id
+  console.log (typeof tar)
+  console.log(typeof savedCovers[0].id)
+  for (var i = 0; i < savedCovers.length; i++) {
+    if (tar == savedCovers[i].id) {
+      console.log('yes')
+    }
+  }
 }
