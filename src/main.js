@@ -134,7 +134,7 @@ function deleteCover(event) {
   console.log(typeof savedCovers[0].id)
   for (var i = 0; i < savedCovers.length; i++) {
     if (tar == savedCovers[i].id) {
-      console.log('yes')
+      savedCovers.splice(i, 1)
     }
   }
 }
