@@ -96,8 +96,9 @@ function makeBookCover() {
   var title = titleInput.value
   var desc1 = firstDescriptorInput.value
   var desc2 = secondDescriptorInput.value
-  customCover = [cover, title, desc1, desc2]
-  makeCurrentCover(customCover)
+  currentCover = [cover, title, desc1, desc2]
+  makeCurrentCover(currentCover)
+  currentCover = new Cover(cover, title, desc1, desc2)
    covers.push(cover)
    titles.push(title)
    descriptors.push(desc1)
