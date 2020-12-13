@@ -29,7 +29,7 @@ viewSavedCoversButton.addEventListener('click', changeToSavedCovers);
 homeButton.addEventListener('click', goHome)
 makeMyBook.addEventListener('click', makeBookCover)
 saveCoverButton.addEventListener('click', saveCoverData)
-savedCoverViewer.addEventListener('click', deleteCover)
+savedCoverViewer.addEventListener('dblclick', deleteCover)
 window.addEventListener('load', randomCover)
 
 function getRandomIndex(array) {
@@ -128,13 +128,12 @@ function showSavedCovers(savedCovers) {
     }
 }
 
-function deleteCover(event) {
-  var tar = event.target.parentElement.id
-  console.log (typeof tar)
-  console.log(typeof savedCovers[0].id)
+function deleteCover() {
+  var coverToBeRemoved = event.target.parentElement.id
   for (var i = 0; i < savedCovers.length; i++) {
-    if (tar == savedCovers[i].id) {
+    if (coverToBeRemoved == savedCovers[i].id) {
       savedCovers.splice(i, 1)
+      changeToSavedCovers()
     }
   }
 }
