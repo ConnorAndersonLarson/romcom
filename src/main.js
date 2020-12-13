@@ -1,4 +1,3 @@
-// Create variables targetting the relevant DOM elements here 👇
 var selectedCover = document.querySelector('.cover-image')
 var selectedTitle = document.querySelector('.cover-title')
 var taglineOne = document.querySelector('.tagline-1')
@@ -18,33 +17,24 @@ var titleInput = document.querySelector('.user-title');
 var firstDescriptorInput = document.querySelector('.user-desc1');
 var secondDescriptorInput = document.querySelector('.user-desc2');
 
-
-
-// We've provided a few variables below
 var savedCovers = [
   new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
 ];
 
-var currentCover// = savedCovers[(savedCovers.length)]
-// Add your event listeners here 👇
+var currentCover
 randomCoverButton.addEventListener('click', randomCover);
 makeNewCover.addEventListener('click', changeToMakeNewCover);
 viewSavedCoversButton.addEventListener('click', changeToSavedCovers);
 homeButton.addEventListener('click', goHome)
 makeMyBook.addEventListener('click', makeBookCover)
 
-
-// Create your event handlers and other functions here 👇
-
-
-// We've provided one function to get you started
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-function currentCover(array) {
-  selectedTitle.innerText = array[0];
-  selectedCover.src = array[1];
+function makeCurrentCover(array) {
+  selectedCover.src = array[0];
+  selectedTitle.innerText = array[1];
   taglineTwo.innerText = array[3];
     if (array[2] === array[2]) {
       randomDescOne = descriptors[getRandomIndex(descriptors)]
@@ -59,57 +49,55 @@ function randomCover(){
     var randomDescOne = descriptors[getRandomIndex(descriptors)]
     var randomCover = covers[getRandomIndex(covers)]
     var randomTitle = titles[getRandomIndex(titles)]
-   currentCover([randomTitle, randomCover, randomDescOne, randomDescTwo])
-   //savedCovers.push(randCover);
+   makeCurrentCover([randomCover, randomTitle, randomDescOne, randomDescTwo])
 }
 randomCover()
 
-function changeToSavedCovers() {
-  homeButton.classList.remove('hidden');
-  saveCoverButton.classList.add('hidden');
-  randomCoverButton.classList.add('hidden');
-  mainCover.classList.add('hidden');
-  savedCoversSection.classList.remove('hidden')
-  formView.classList.add('hidden');
-};
-
-function changeToMakeNewCover() {
-  homeButton.classList.remove('hidden');
-  saveCoverButton.classList.add('hidden');
-  randomCoverButton.classList.add('hidden');
-  mainCover.classList.add('hidden');
-  savedCoversSection.classList.add('hidden');
-  formView.classList.remove('hidden')
-};
-
 function goHome() {
+  changePage(1)
   saveCoverButton.classList.remove('hidden')
   homeButton.classList.add('hidden');
   randomCoverButton.classList.remove('hidden')
   mainCover.classList.remove('hidden')
-  savedCoversSection.classList.add('hidden');
-  formView.classList.add('hidden');
 };
 
-function makeBookCover() {
+function changeToSavedCovers() {
+  changePage(2)
+  savedCoversSection.classList.remove('hidden')
+};
 
+function changeToMakeNewCover() {
+  changePage(3)
+  formView.classList.remove('hidden')
+};
+
+function changePage(num){
+  var buttons = [homeButton, saveCoverButton,randomCoverButton, mainCover, savedCoversSection, formView]
+  if (num === 1 || num === 2) {
+    buttons[5].classList.add('hidden')
+  }
+  if (num === 2 || num === 3) {
+    buttons[0].classList.remove('hidden')
+    buttons[1].classList.add('hidden')
+    buttons[2].classList.add('hidden')
+    buttons[3].classList.add('hidden')
+  }
+  if (num === 3 || num === 1) {
+    buttons[4].classList.add('hidden')
+  }
+}
+
+function makeBookCover() {
   var cover = coverInput.value
   var title = titleInput.value
   var desc1 = firstDescriptorInput.value
   var desc2 = secondDescriptorInput.value
-  //console.log(selectedTitle.innerText)
-  customCover = [title, cover, desc1, desc2]
-  currentCover(customCover)
-  covers.push(cover)
-  titles.push(title)
-  descriptors.push(desc1)
-  descriptors.push(desc2)
+  customCover = [cover, title, desc1, desc2]
+  makeCurrentCover(customCover)
+   covers.push(cover)
+   titles.push(title)
+   descriptors.push(desc1)
+   descriptors.push(desc2)
   goHome()
   event.preventDefault()
-  //should save the data into respective arrays- cover, title, descriprtor
-  //Use the values from the inputs to create a new instance of the Cover class
-  //Change back to the main home view (hiding the form view again)
-  //Display the newly created cover image, title, and descriptors in the main cover
-  //selectedTitle.innerText = titleInput.value
-
 };
