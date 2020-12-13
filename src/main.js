@@ -105,25 +105,18 @@ function makeBookCover() {
 };
 
 function saveCoverData() {
-  console.log('sdfad')
   for (var i = 0; i < savedCovers.length; i++) {
     var coverCompare = savedCovers[i].cover === currentCover.cover
     var titleCompare = savedCovers[i].title === currentCover.title
     var descriptorOneCompare = savedCovers[i].taglineOne === currentCover.taglineOne
     var descriptorTwoCompare = savedCovers[i].taglineTwo === currentCover.tagLineTwo
-
-    console.log(coverCompare, titleCompare, descriptorOneCompare, descriptorTwoCompare)
-    console.log(savedCovers[i])
-    console.log()
     var save;
     if (coverCompare != false && titleCompare != false && descriptorOneCompare != false && descriptorTwoCompare != false) {
-      console.log("big fat turd")
-    } else if (i === (savedCovers.length - 1)) /*&& (savedCovers[i].cover === currentCover.cover) == false && (savedCovers[i].title === currentCover.title) == false && (savedCovers[i].taglineOne === currentCover.taglineOne) == false && (savedCovers[i].taglineTwo === currentCover.tagLineTwo) == false)*/{
+    } else if (i === (savedCovers.length - 1)){
       savedCovers.push(currentCover)
-      console.log(savedCovers)
     }
   }
-console.log(savedCovers)
+
 
 }
 
