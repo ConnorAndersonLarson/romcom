@@ -56,7 +56,6 @@ function randomCover(){
    makeCurrentCover([randomCover, randomTitle, randomDescOne, randomDescTwo])
    currentCover = new Cover(randomCover, randomTitle, randomDescOne, randomDescTwo)
 }
-//randomCover()
 
 function goHome() {
   changePage(1)
