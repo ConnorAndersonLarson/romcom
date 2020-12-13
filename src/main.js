@@ -116,16 +116,14 @@ function saveCoverData() {
       return;
     } else if (i === (savedCovers.length - 1)) {
       savedCovers.push(currentCover)
-      showSavedCovers(currentCover)
+      showSavedCovers(savedCovers[(savedCovers.length-1)])
     }
   }
-  showSavedCovers(savedCovers)
 }
 
 function showSavedCovers(savedCovers) {
-  //for (i = 0; i < savedCovers.length; i++) {
-  console.log(savedCovers)
     savedCoverViewer.innerHTML += `
+      <section id="${savedCovers.id}">
       <section class="mini-cover">
         <img class="cover-image" src="${savedCovers.cover}">
         <h2 class="cover-title">${savedCovers.title}</h2>
@@ -134,7 +132,6 @@ function showSavedCovers(savedCovers) {
         <img class="overlay" src="./assets/overlay.png">
       </section>
     </section>`
-  //}
 }
 
 
