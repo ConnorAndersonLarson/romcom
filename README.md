@@ -72,11 +72,19 @@ If a user would like to save a random or custom cover they can utilize the "Save
 ##### How it Works #####
 	* The "Save Cover" button utilizes an event listener and handler.
 	* When the button is clicked the saveCoverData function is invoked. This will evaluate if the data is already stored.  If the cover has at least one unique characteristic it will be saved.
+#### Viewed Saved Covers Page ####
+Once a photo is saved it can be viewed in the saved covers page.
+##### How it Works #####
+	* The showSavedCovers function was built to iterate through every element in the savedCovers array.
+	* This function manipulate the inner html of the saved covers element stored in the html file.
+	* When the function is invoked the inner html is assigned to an empty string, this prevents duplicate entries into the html structure.
+	* A for loop iterates through every saved cover and creates and concats a new element.
+	* The inner html is change via interpolation utilizing each objects id, cover, title, and two taglines.  
+	* The showSavedCovers function is invoked when the button "View Saved Covers" is clicked.
 
 ---
 ### Iteration 5 ###
----
-#### Delete Saved Cover Function ####
+
 ---
 ##### Deleting a saved cover #####
 After saving covers you are able to view them in the View Saved Covers Section. Saved a cover by mistake? No problem, you can remove covers as you see fit.  Double click on any image and it will be removed from your collection.  
