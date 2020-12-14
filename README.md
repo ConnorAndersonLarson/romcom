@@ -8,13 +8,14 @@
 
 ### Reviewers ###
   * Gabrielle Joyce
+  * Erik Konner
 ---
 
 ### Technology Used ###
   * Contributor work was relegated to JavaScript only
 
 ### Running and Viewing Project ###
-  * Github pages to view main branch webpage
+  * [This Github Page](https://connorandersonlarson.github.io/romcom/) to view final webpage
   * Contributor work can be viewed in src/main.js
   
 ---
