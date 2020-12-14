@@ -3,19 +3,19 @@
 ---
 
 ### Contributors ###  
-	* Steven Mancine  
-	* Connor Anderson-Larson  
+  * Steven Mancine  
+  * Connor Anderson-Larson  
 
 ### Reviewers ###
-	* Gabrielle Joyce
+  * Gabrielle Joyce
 ---
 
 ### Technology Used ###
-	* Contributor work was relegated to JavaScript only
+  * Contributor work was relegated to JavaScript only
 
 ### Running and Viewing Project ###
-	* Github pages to view main branch webpage
-	* Contributor work can be viewed in src/main.js
+  * Github pages to view main branch webpage
+  * Contributor work can be viewed in src/main.js
 ---
 
 ## Project Information ##
@@ -48,20 +48,20 @@ When the page loads, we should see a cover with a randomly selected image, title
 #### Switching Views ####
   * Make buttons function so the proper items become hidden/unhidden depending on the button being pressed.
 ##### How it Works #####
-	* Create event listeners for all buttons on page.
-	* Identify the various elements necessary for a proper page transition.
-	* Create three functions (goHome, changeToSavedCovers, changeToMakeNewCover) that alter elements specific to those pages.
-	* Create a final function that is called by the three previous functions (changePage). This function changes elements whose changes are shared by other button presses. These element changes are placed in if statements with with logical OR operators to decide what actions to make based on what button is pressed.
+  * Create event listeners for all buttons on page.
+  * Identify the various elements necessary for a proper page transition.
+  * Create three functions (goHome, changeToSavedCovers, changeToMakeNewCover) that alter elements specific to those pages.
+  * Create a final function that is called by the three previous functions (changePage). This function changes elements whose changes are shared by other button presses. These element changes are placed in if statements with with logical OR operators to decide what actions to make based on what button is pressed.
 
 
 #### Creating a Cover ####
 In the Make New Cover section users can create unique covers. There are four categories that you can change: cover, title, and two descriptors.
 ##### How it Works #####
-	* We created a function that reads user input assigns them to variables.
-	* Those variables are then stored in an array which get passed to the makeCurrentCover function.
-	* The variables are  also used to create a new cover object which overrides the current cover data.
-	* When the user clicks the "Make My Book" button they are brought back to the home screen where the new cover appears.
-	* An event handler was also added to prevent the page from reloading by default.
+  * We created a function that reads user input assigns them to variables.
+  * Those variables are then stored in an array which get passed to the makeCurrentCover function.
+  * The variables are  also used to create a new cover object which overrides the current cover data.
+  * When the user clicks the "Make My Book" button they are brought back to the home screen where the new cover appears.
+  * An event handler was also added to prevent the page from reloading by default.
 
 ---
 ### Iteration 4 ###
@@ -69,17 +69,17 @@ In the Make New Cover section users can create unique covers. There are four cat
 #### Saving & Viewing Covers ####
 If a user would like to save a random or custom cover they can utilize the "Save Cover" button.  
 ##### How it Works #####
-	* The "Save Cover" button utilizes an event listener and handler.
-	* When the button is clicked the saveCoverData function is invoked. This will evaluate if the data is already stored.  If the cover has at least one unique characteristic it will be saved.
+  * The "Save Cover" button utilizes an event listener and handler.
+  * When the button is clicked the saveCoverData function is invoked. This will evaluate if the data is already stored.  If the cover has at least one unique characteristic it will be saved.
 #### Viewed Saved Covers Page ####
 Once a photo is saved it can be viewed in the saved covers page.
 ##### How it Works #####
-	* The showSavedCovers function was built to iterate through every element in the savedCovers array.
-	* This function manipulate the inner html of the saved covers element stored in the html file.
-	* When the function is invoked the inner html is assigned to an empty string, this prevents duplicate entries into the html structure.
-	* A for loop iterates through every saved cover and creates and concats a new element.
-	* The inner html is change via interpolation utilizing each objects id, cover, title, and two taglines.  
-	* The showSavedCovers function is invoked when the button "View Saved Covers" is clicked.
+  * The showSavedCovers function was built to iterate through every element in the savedCovers array.
+  * This function manipulate the inner html of the saved covers element stored in the html file.
+  * When the function is invoked the inner html is assigned to an empty string, this prevents duplicate entries into the html structure.
+  * A for loop iterates through every saved cover and creates and concats a new element.
+  * The inner html is change via interpolation utilizing each objects id, cover, title, and two taglines.  
+  * The showSavedCovers function is invoked when the button "View Saved Covers" is clicked.
 
 ---
 ### Iteration 5 ###
