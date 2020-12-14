@@ -2,26 +2,25 @@
 ---
 ---
 
-## Contributors ##  
+### Contributors ###  
 	* Steven Mancine  
 	* Connor Anderson-Larson  
----
 
-## Reviewers ##
+### Reviewers ###
 	* Gabrielle Joyce
 ---
 
-## Technology Used ##
+### Technology Used ###
 	* Contributor work was relegated to JavaScript only
----
 
-## Running and Viewing Project ##
+### Running and Viewing Project ###
 	* Github pages to view main branch webpage
 	* Contributor work can be viewed in src/main.js
 ---
 
 ## Project Information ##
 ---
+The Primary Function of the site is the creation and saving of custom romance novel covers. Primary features are random cover generation on the home page, a saved cover page that shows smaller versions of saved main covers, and a cover creation form page with a form for users to add their own titles, descriptors, and cover images. 
 Project Iterations have been grouped together as they tend to flow into the same systems.
 ---
 ### Iteration 0 and 1 ###
