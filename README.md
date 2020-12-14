@@ -1,125 +1,100 @@
+# ROMCOM Partner Project #
 ---
-title: RomCom - Pair
 ---
 
-## Learning Goals
+### Contributors ###  
+  * Steven Mancine  
+  * Connor Anderson-Larson  
 
-* Write clean, DRY JavaScript to store our data
-* Use a provided class by creating object instances using the `new` keyword
-* Manipulate the page after it has loaded adding, removing, and updating elements on the DOM
+### Reviewers ###
+  * Gabrielle Joyce
+---
 
-## Overview
+### Technology Used ###
+  * Contributor work was relegated to JavaScript only
 
-People say that romance novels are formulaic. Well ... maybe that's true. We're going to make an app that generates romance novel covers!
+### Running and Viewing Project ###
+  * Github pages to view main branch webpage
+  * Contributor work can be viewed in src/main.js
+  
+---
+## Project Information ##
+---
 
-## Set Up
+The Primary Function of the site is the creation and saving of custom romance novel covers. Primary features are random cover generation on the home page, a saved cover page that shows smaller versions of saved main covers, and a cover creation form page with a form for users to add their own titles, descriptors, and cover images.
+Project Iterations have been grouped together as they tend to flow into the same systems.
 
-To begin, choose ONE PARTNER to do the following:
+---
+### Iteration 0 and 1 ###
+---
+#### Main Page ####
+When the page loads, we should see a cover with a randomly selected image, title, and tagline, which includes two random descriptors.
+##### How it Works #####
+  * Create an event listener that activates upon page load and activates the makeRandomCover function.
+  * makeRandomCover draws the four necessary items (title, cover, and two descriptors) from our data.js arrays.
+  * The randomized items are sent to the makeCurrentCover function in the form of an array.
+  * makeCurrentCover uses .src and .innerText to change the what is displayed on the webpage.
+  * makeCurrentCover checks that both descriptors are unique towards each other and randomizes one if not before pushing the descriptor to the main page.
 
-1. Fork this boilerplate repository
-2. Clone down your new, forked repo
-3. `cd` into the repository
-4. Open it in your text editor
-5. View the project in the browser by running `open index.html` in your terminal
-5. Add all project partners and your assigned instructor as collaborators on the repository
+#### Show Random Cover ####
+  * Every time the user clicks the Show New Random Cover button, a new random cover is created
+  * Every time the user clicks the Show New Random Cover button, the random cover is displayed
+##### How it Works #####
+  * Create an event listener that activates when the random cover button is pressed.
+  * Use the same makeRandomCover and makeCurrentCover function as previously listed to create the random cover.
+  * Effectively a manual override for the function being executed on page load.
 
-Then, as a team:
-
-* Explore the repository to see what's going on in the code
-  - Look at each file: `index.html`, `styles.css`, `data.js`, `Cover.js`, `main.js`
-  - _Note: no imports or exports are needed because each JS file is linked in the HTML_
-  - Even if you don't know what each piece of the code is doing, talk through what you think is going on
-* What pieces of code might you use to complete iterations, and what pieces will you have to create?
-* All of your work will take place in `main.js` - you will not need to change any other files!
-
-## Day 1 Deliverables
-
-By the end of the day, complete the following tasks:
-
-* As a team, read the entire project spec and rubric
-* As a team, create a rough timeline to follow
-* As a team, create a public document for your DTR (instructions can be found [here](https://github.com/turingschool/career-development-curriculum/blob/master/module_one/dtr_guidelines_memo.md))
-* Make sure all teammates (and assigned instructor) are added as collaborators to the forked repository
-* As a team, send a Slack message to your assigned instructor (PM) with:
-  - the forked GitHub repo
-  - the GitHub Pages deployed site
-    - Under your repo's settings, scroll down to GitHub Pages and set it up to deploy your main branch
-  - the DTR
-
-## Progression
-
-For a description of iterations, visit [the project page](https://frontend.turing.io/projects/module-1/romcom-pair.html) on the curriculum site.
-
-## Rubric
-
-This rubric should serve as a guide for students as they progress through the project, as well as to self-evaluate. Instructors will use it to evaluate the project at its final due date/time, and provide detailed feedback so students know what areas to focus on in future projects.
-
-Scores land in a range between 1 and 4. Below is a breakdown of what those numbers represent.
-
-* **4 (exceptional)** - went beyond set learning goals; did self-teaching to go above and beyond in this area
-* **3 (proficient)** - exactly on track! you're where you need to be in this area! great work!
-* **2 (trailing)** - a little behind where we want to see you right now; in a good place to build familiarity/competency in this area; study in this area to level up and grow
-* **1 (dragging)** - significantly behind where we want to see you; major growth needs to be shown in this area; set up a pairing session with an instructor as soon as possible
-
-To earn a given score, an application must meet the requirements listed in that score explanation and all scores lower.
-
-### Professionalism
-
-* **4:**
-  - Team uses a PR template
-  - Team habitually conducts thorough code reviews in the GitHub GUI to document the progress of the application
-  - Team has sought out code reviews from one or more mentors
-  - README is well formatted and descriptive with screenshots or gifs of the application in action
-* **3:**
-  - Commits are atomic and frequent, effectively documenting the evolution/progression of the application
-  - Commit messages are consistent, descriptive, and concise
-  - Team uses PRs to screen/verify code before adding it to the main branch
-  - There is no more than a 10% disparity in project contributions between teammates
-  - README is well formatted and gives good context about the project, including links to both contributors' GitHub profiles, and to the deployed GitHub Pages site
-* **2:**
-  - Commits are large and do not effectively communicate the progression of the application
-  - Team uses PRs but do not review code before merging into the main branch
-  - All teammates can speak to the purpose and functionality of any/every line of code
-  - There is a 20% disparity in project contributions between teammates
-  - README is brief and does not provide context for the project
-* **1:**
-  - Teammates do not understand the purpose and functionality of every line of code
-  - Some commits are pushed directly to the main branch
-  - PRs are used inconsistently
-  - There is a 50% disparity in project contributions between teammates
-  - There is no README, or README is insufficient
-
-### JavaScript Style & Implementation
-
-* **4:**
-  - There are no global variables aside from query selectors, `currentCover` and `savedCovers`.
-  - Application uses event delegation correctly on dynamic elements
-  - All functions strictly adhere to [SRP](http://knnthvu.weebly.com/srp-and-dry.html) and - with few exceptions - are around 10 lines of code or less
-  - All functions and variables are semantically and concisely named
-  - Uses logical operators instead of if/else statements where applicable
-  - Code contains no antipatterns
-* **3:**
-  - Demonstrate understanding of DOM manipulation by adding, removing, and updating elements on the DOM, after the page has loaded
-  - Functions are [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) and observe [SRP](http://knnthvu.weebly.com/srp-and-dry.html)
-  - Functions make use of parameters and arguments in order to be more dynamic
-* **2:**
-  - Properly uses parameters and arguments when used
-  - Uses named functions instead of anonymous functions as event handlers in event listeners
-  - Correctly uses if/else statements to handle multiple paths of logic & error handling
-* **1:**
-  - Crafts JS according to the [Turing JS style guide](https://github.com/turingschool-examples/javascript/tree/master/es5)
+---  
+### Iteration 2 and 3 ###
+---
+#### Switching Views ####
+  * Make buttons function so the proper items become hidden/unhidden depending on the button being pressed.
+##### How it Works #####
+  * Create event listeners for all buttons on page.
+  * Identify the various elements necessary for a proper page transition.
+  * Create three functions (goHome, changeToSavedCovers, changeToMakeNewCover) that alter elements specific to those pages.
+  * Create a final function that is called by the three previous functions (changePage). This function changes elements whose changes are shared by other button presses. These element changes are placed in if statements with with logical OR operators to decide what actions to make based on what button is pressed.
 
 
-### Functional Expectations
+#### Creating a Cover ####
+In the Make New Cover section users can create unique covers. There are four categories that you can change: cover, title, and two descriptors.
+##### How it Works #####
+  * We created a function that reads user input assigns them to variables.
+  * Those variables are then stored in an array which get passed to the makeCurrentCover function.
+  * The variables are  also used to create a new cover object which overrides the current cover data.
+  * When the user clicks the "Make My Book" button they are brought back to the home screen where the new cover appears.
+  * An event handler was also added to prevent the page from reloading by default.
 
-Functionality is the least important piece of the rubric. It's included because it is another benchmark to gauge proficiency. However, you should not pursue functionality at the expense of code quality or the learning/growth of all team members.
+---
+### Iteration 4 ###
+---
+#### Saving & Viewing Covers ####
+If a user would like to save a random or custom cover they can utilize the "Save Cover" button.  
+##### How it Works #####
+  * The "Save Cover" button utilizes an event listener and handler.
+  * When the button is clicked the saveCoverData function is invoked. This will evaluate if the data is already stored.  If the cover has at least one unique characteristic it will be saved.
+#### Viewed Saved Covers Page ####
+Once a photo is saved it can be viewed in the saved covers page.
+##### How it Works #####
+  * The showSavedCovers function was built to iterate through every element in the savedCovers array.
+  * This function manipulate the inner html of the saved covers element stored in the html file.
+  * When the function is invoked the inner html is assigned to an empty string, this prevents duplicate entries into the html structure.
+  * A for loop iterates through every saved cover and creates and concats a new element.
+  * The inner html is change via interpolation utilizing each objects id, cover, title, and two taglines.  
+  * The showSavedCovers function is invoked when the button "View Saved Covers" is clicked.
 
-This means, we DO NOT want to see:
-- Code that completes iterations but is sloppy
-- One or both team members do not understand every single line of code
-- One or both team members skips the problem solving process (pseudocoding, talking out the problem, articulating, planning) in the pursuit of completing functionality
+---
+### Iteration 5 ###
 
-* **4:** Applications completes one or more of the extensions without bugs
-* **3:** Application completes all the expectations of Iteration 4 without bugs
-* **2:** Application completes all the expectations of Iteration 3 without bugs
-* **1:** Application completes all the expectations of Iteration 2 without bugs
+---
+##### Deleting a saved cover #####
+After saving covers you are able to view them in the View Saved Covers Section. Saved a cover by mistake? No problem, you can remove covers as you see fit.  Double click on any image and it will be removed from your collection.  
+##### How it works #####
+  * We created an event listener that will only activate with a double click.
+  * The function itself utilizes an event object and is tied to a target element.
+  * The target element gets assigned to what gets double clicked, in this case we asked for the parent element id.
+  * Next we created a for loop.
+    1. Loop will run for the duration of the savedCovers array.
+    2. If the target id is loosely equal to the savedCover id our code will initiate.
+    3. A splice method is utilized to remove only one element.
+    4. Page will reload with updated collection of photos.
