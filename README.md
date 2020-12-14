@@ -49,6 +49,10 @@ When the page loads, we should see a cover with a randomly selected image, title
 #### Switching Views ####
   * Make buttons function so the proper items become hidden/unhidden depending on the button being pressed.
 ##### How it Works #####
+	* Create event listeners for all buttons on page.
+	* Identify the various elements necessary for a proper page transition.
+	* Create three functions (goHome, changeToSavedCovers, changeToMakeNewCover) that alter elements specific to those pages.
+	* Create a final function that is called by the three previous functions (changePage). This function changes elements whose changes are shared by other button presses. These element changes are placed in if statements with with logical OR operators to decide what actions to make based on what button is pressed.
 
 
 #### Creating a Cover ####
