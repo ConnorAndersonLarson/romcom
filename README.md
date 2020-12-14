@@ -20,7 +20,7 @@
 
 ## Project Information ##
 ---
-The Primary Function of the site is the creation and saving of custom romance novel covers. Primary features are random cover generation on the home page, a saved cover page that shows smaller versions of saved main covers, and a cover creation form page with a form for users to add their own titles, descriptors, and cover images. 
+The Primary Function of the site is the creation and saving of custom romance novel covers. Primary features are random cover generation on the home page, a saved cover page that shows smaller versions of saved main covers, and a cover creation form page with a form for users to add their own titles, descriptors, and cover images.
 Project Iterations have been grouped together as they tend to flow into the same systems.
 ---
 ### Iteration 0 and 1 ###
@@ -28,8 +28,8 @@ Project Iterations have been grouped together as they tend to flow into the same
 #### Main Page ####
 When the page loads, we should see a cover with a randomly selected image, title, and tagline, which includes two random descriptors.
 ##### How it Works #####
-  * Create an event listener that activates upon page load and activates the randomCover function.
-  * randomCover draws the four necessary items (title, cover, and two descriptors) from our data.js arrays.
+  * Create an event listener that activates upon page load and activates the makeRandomCover function.
+  * makeRandomCover draws the four necessary items (title, cover, and two descriptors) from our data.js arrays.
   * The randomized items are sent to the makeCurrentCover function in the form of an array.
   * makeCurrentCover uses .src and .innerText to change the what is displayed on the webpage.
   * makeCurrentCover checks that both descriptors are unique towards each other and randomizes one if not before pushing the descriptor to the main page.
@@ -39,7 +39,7 @@ When the page loads, we should see a cover with a randomly selected image, title
   * Every time the user clicks the Show New Random Cover button, the random cover is displayed
 ##### How it Works #####
   * Create an event listener that activates when the random cover button is pressed.
-  * Use the same randomCover and makeCurrentCover function as previously listed to create the random cover.
+  * Use the same makeRandomCover and makeCurrentCover function as previously listed to create the random cover.
   * Effectively a manual override for the function being executed on page load.
 
 ---  
