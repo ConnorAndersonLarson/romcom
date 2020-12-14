@@ -40,7 +40,7 @@ function makeCurrentCover(array) {
   selectedCover.src = array[0];
   selectedTitle.innerText = array[1];
   taglineTwo.innerText = array[3];
-    if (array[2] === array[2]) {
+    if (array[2] === array[3]) {
       randomDescOne = descriptors[getRandomIndex(descriptors)];
       taglineOne.innerText = array[2];
    } else {
@@ -131,8 +131,8 @@ function deleteCover() {
   var coverToBeRemoved = event.target.parentElement.id;
   for (var i = 0; i < savedCovers.length; i++) {
     if (coverToBeRemoved == savedCovers[i].id) {
-      savedCovers.splice(i, 1)
-      changeToSavedCovers()
+      savedCovers.splice(i, 1);
+      changeToSavedCovers();
     };
   };
 };
